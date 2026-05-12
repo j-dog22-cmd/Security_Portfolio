@@ -19,6 +19,7 @@ I'm second year BSc (Hons) Cyber Security and Digital Forensics student at the u
 | Project                 | Description                                                                                 | Tools used                 |
 | ----------------------- | ------------------------------------------------------------------------------------------- | -------------------------- |
 | Threat analysis Reports | real world phishing and malware analysis using isolated sandboxing and MITRE ATT&CK mapping | Cuckoo sandbox, VirusTotal |
+
 more projects coming soon as I continue to develop my skills
 
 ---
