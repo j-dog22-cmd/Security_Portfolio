@@ -37,7 +37,7 @@ Pre-security
 
 ## Tryhackme progress
 
-**[TryHackMe | joby877](https://tryhackme.com/p/joby877)
+[TryHackMe | joby877](https://tryhackme.com/p/joby877)
 
 ---
 This repository is a living document - updated regularly as I complete projects, certifications and research.
