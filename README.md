@@ -37,7 +37,6 @@ I'm building this portfolio to track my progress and share what I learn across d
 ---
 ## TryHackMe
 
-[![TryHackMe](https://tryhackme-badges.s3.amazonaws.com/joby887.png)](https://tryhackme.com/p/joby887)
 
 Actively working through rooms and learning paths on TryHackMe. View my full profile here.
 Completed Rooms
