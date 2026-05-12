@@ -12,11 +12,9 @@ I'm building this portfolio to track my progress and share what I learn across d
 
 ## Areas of Interest
 
-- Networking & fundamentals
-- Ethical hacking / penetration testing
-- CTF (Capture the Flag) challenges
-- Web application security
-- Blue team / defensive security
+- AI/ML security
+- Threat Analysis
+- Cloud security
 
 ---
 
@@ -37,10 +35,14 @@ I'm building this portfolio to track my progress and share what I learn across d
 > Coming soon — this section will be updated as I complete projects.
 
 ---
+## TryHackMe
 
-## CTF Write-ups
+[![TryHackMe](https://tryhackme-badges.s3.amazonaws.com/joby887.png)](https://tryhackme.com/p/joby887)
 
-> Coming soon — solutions and walkthroughs from CTF challenges.
+Actively working through rooms and learning paths on TryHackMe. View my full profile here.
+Completed Rooms
+
+I'll be updating this as I work through more rooms.
 
 ---
 
