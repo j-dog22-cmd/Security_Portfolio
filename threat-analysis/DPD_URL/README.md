@@ -136,8 +136,8 @@ Flagged by **21/21 AV engines** on VirusTotal — all classify as phishing or ma
 
 ### Screenshots
 
-> Add any screenshots from the sandbox here using:
-> ![Cukoo sandbox results](results.png)
+
+![Cukoo sandbox results](results.png)
 
 ---
 
