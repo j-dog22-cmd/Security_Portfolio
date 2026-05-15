@@ -19,7 +19,7 @@ I'm second year BSc (Hons) Cyber Security and Digital Forensics student at the u
 | Project                 | Description                                                                                 | Tools used                 |
 | ----------------------- | ------------------------------------------------------------------------------------------- | -------------------------- |
 | Threat analysis Reports | real world phishing and malware analysis using isolated sandboxing and MITRE ATT&CK mapping | Cuckoo sandbox, VirusTotal |
-| Suspicous threat form   | a form made for family and friends to send all there suspicious scam and Phishing emails they recieve to complete a safer enviroment | emailjs.com, github  |
+| Suspicous threat form   | a form made for family and friends to send all there suspicious scam and Phishing emails they recieve to complete a safer enviroment | Emailjs.com, Github  |
 
 more projects coming soon as I continue to develop my skills
 
