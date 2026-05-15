@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report a Suspicious Message</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <style>
+    :root {
+      --bg: #0a0e13;
+      --surface: #111820;
+      --border: #1e2d3d;
+      --border-focus: #00d4ff;
+      --text: #e2e8f0;
+      --text-muted: #64748b;
+      --accent: #00d4ff;
+      --accent-dim: rgba(0, 212, 255, 0.08);
+      --danger: #ff4444;
+      --success: #00ff88;
+      --warning: #ffaa00;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(0, 212, 255, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(0, 212, 255, 0.03) 0%, transparent 60%);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      max-width: 560px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      color: var(--accent);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .warning-banner {
+      background: rgba(255, 170, 0, 0.06);
+      border: 1px solid rgba(255, 170, 0, 0.25);
+      border-left: 3px solid var(--warning);
+      border-radius: 4px;
+      padding: 12px 16px;
+      margin-bottom: 28px;
+      max-width: 560px;
+      width: 100%;
+      font-size: 13px;
+      color: #c8a060;
+      line-height: 1.5;
+    }
+
+    .warning-banner strong { color: var(--warning); }
+
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 32px;
+      width: 100%;
+      max-width: 560px;
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-family: 'IBM Plex Mono', monospace;
+      margin-bottom: 8px;
+    }
+
+    label span {
+      color: var(--danger);
+      margin-left: 2px;
+    }
+
+    .label-hint {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: 6px;
+      opacity: 0.7;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.08);
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: var(--text-muted);
+      opacity: 0.5;
+      font-family: 'IBM Plex Sans', sans-serif;
+    }
+
+    .upload-area {
+      width: 100%;
+      border: 1px dashed var(--border);
+      border-radius: 4px;
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      background: var(--bg);
+    }
+
+    .upload-area:hover, .upload-area.drag-over {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .upload-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .upload-text strong { color: var(--accent); }
+
+    .file-preview {
+      margin-top: 10px;
+      font-size: 12px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--success);
+      display: none;
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    .type-option {
+      position: relative;
+    }
+
+    .type-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .type-option label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--bg);
+      transition: all 0.2s;
+      margin: 0;
+    }
+
+    .type-option input:checked + label {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 24px 0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      padding: 14px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      text-transform: uppercase;
+    }
+
+    .submit-btn:hover { opacity: 0.85; }
+    .submit-btn:active { transform: scale(0.99); }
+    .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .status-msg {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 4px;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+
+    .status-msg.success {
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      color: var(--success);
+      display: block;
+    }
+
+    .status-msg.error {
+      background: rgba(255, 68, 68, 0.08);
+      border: 1px solid rgba(255, 68, 68, 0.25);
+      color: var(--danger);
+      display: block;
+    }
+
+    .footer {
+      margin-top: 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="badge">Threat Reporting</div>
+    <h1>Report a <span>Suspicious</span> Message</h1>
+    <p class="subtitle">Received something that doesn't look right? Send it here and I'll take a look. Don't worry — just describe what you received.</p>
+  </div>
+
+  <div class="warning-banner">
+    ⚠️ <strong>Do not click any links in the message.</strong> Simply copy and paste the link or message text into the form below. If you have already clicked, let me know in the notes field.
+  </div>
+
+  <div class="form-card">
+    <form id="reportForm">
+
+      <div class="form-group">
+        <label>Your Name <span>*</span></label>
+        <input type="text" id="from_name" placeholder="e.g. Mum" required />
+      </div>
+
+      <div class="form-group">
+        <label>Your Email <span>*</span> <span class="label-hint">so I can follow up with you</span></label>
+        <input type="email" id="from_email" placeholder="your@email.com" required />
+      </div>
+
+      <div class="form-group">
+        <label>Message Type</label>
+        <div class="type-grid">
+          <div class="type-option">
+            <input type="radio" name="msg_type" id="type_sms" value="SMS" checked />
+            <label for="type_sms">📱 SMS</label>
+          </div>
+          <div class="type-option">
+            <input type="radio" name="msg_type" id="type_email" value="Email" />
+            <label for="type_email">📧 Email</label>
+          </div>
+          <div class="type-option">
+            <input type="radio" name="msg_type" id="type_other" value="Other" />
+            <label for="type_other">💬 Other</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Suspicious Link <span class="label-hint">paste it here, don't click it</span></label>
+        <input type="text" id="suspicious_url" placeholder="https://..." />
+      </div>
+
+      <div class="form-group">
+        <label>Message Text <span>*</span> <span class="label-hint">copy and paste the full message</span></label>
+        <textarea id="message_text" rows="5" placeholder="Paste the full message here..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Screenshot <span class="label-hint">optional but helpful</span></label>
+        <div class="upload-area" id="uploadArea">
+          <input type="file" id="screenshot" accept="image/*" />
+          <span class="upload-icon">📎</span>
+          <div class="upload-text">
+            <strong>Click to upload</strong> or drag and drop<br/>
+            PNG, JPG, JPEG up to 5MB
+          </div>
+          <div class="file-preview" id="filePreview"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Additional Notes <span class="label-hint">e.g. have you clicked the link?</span></label>
+        <textarea id="notes" rows="3" placeholder="Anything else I should know..."></textarea>
+      </div>
+
+      <hr class="divider" />
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        🔍 Submit for Analysis
+      </button>
+
+      <div class="status-msg" id="statusMsg"></div>
+
+    </form>
+  </div>
+
+  <div class="footer">
+    <p>This form is for family and friends only. All submissions are reviewed manually.<br/>
+    Built by <a href="https://github.com/j-dog22-cmd" target="_blank">j-dog22-cmd</a> as part of an independent security research project.</p>
+  </div>
+
+  <script>
+    // =============================================
+    // EMAILJS SETUP — REPLACE THESE THREE VALUES
+    // =============================================
+    const EMAILJS_PUBLIC_KEY   = "QqDsP0XRGC3lwGP6q";   // from EmailJS dashboard
+    const EMAILJS_SERVICE_ID   = "service_4rg7y12";   // e.g. "service_xxxxxxx"
+    const EMAILJS_TEMPLATE_ID  = "template_83ctu5f";  // e.g. "template_xxxxxxx"
+    // =============================================
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // File upload preview
+    const fileInput = document.getElementById('screenshot');
+    const filePreview = document.getElementById('filePreview');
+    const uploadArea = document.getElementById('uploadArea');
+
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files.length > 0) {
+        filePreview.style.display = 'block';
+        filePreview.textContent = '✓ ' + fileInput.files[0].name;
+      }
+    });
+
+    uploadArea.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      uploadArea.classList.add('drag-over');
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+      uploadArea.classList.remove('drag-over');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.classList.remove('drag-over');
+      if (e.dataTransfer.files.length > 0) {
+        fileInput.files = e.dataTransfer.files;
+        filePreview.style.display = 'block';
+        filePreview.textContent = '✓ ' + e.dataTransfer.files[0].name;
+      }
+    });
+
+    // Form submission
+    document.getElementById('reportForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const btn = document.getElementById('submitBtn');
+      const statusMsg = document.getElementById('statusMsg');
+      const msgType = document.querySelector('input[name="msg_type"]:checked').value;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      statusMsg.className = 'status-msg';
+      statusMsg.style.display = 'none';
+
+      const templateParams = {
+        from_name:      document.getElementById('from_name').value,
+        from_email:     document.getElementById('from_email').value,
+        message_type:   msgType,
+        suspicious_url: document.getElementById('suspicious_url').value || 'Not provided',
+        message_text:   document.getElementById('message_text').value,
+        notes:          document.getElementById('notes').value || 'None',
+      };
+
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+        statusMsg.className = 'status-msg success';
+        statusMsg.textContent = '✓ Report submitted successfully. I will review it and get back to you.';
+        document.getElementById('reportForm').reset();
+        filePreview.style.display = 'none';
+      } catch (err) {
+        statusMsg.className = 'status-msg error';
+        statusMsg.textContent = '✗ Something went wrong. Please send me a message directly.';
+        console.error(err);
+      }
+
+      btn.disabled = false;
+      btn.textContent = '🔍 Submit for Analysis';
+    });
+  </script>
+</body>
+</html>
