@@ -1,64 +1,43 @@
-# Cybersecurity Portfolio
+# Hi, I'm Joby Barnaby 
 
-A living document of my cybersecurity learning journey — notes, projects, write-ups, and resources, organised as I go.
+> Cyber security student | aspiring security professional | always learning 
+
+I'm second year BSc (Hons) Cyber Security and Digital Forensics student at the university of the West of England, with strong foundations in offensive and defensive security. I have a growing focus on AI security and threat analysis, and I actively build skills outside of university through independent research and hands-on lab work 
+
+---
+## what I'm working on
+
+- Independent threat analysis and Phishing investigation reports 
+- Tryhackme - AI security and Pre-security paths 
+- Beginning to write awareness content on LinkedIn 
+- Working towards CompTIA security+
 
 ---
 
-## About
+## Projects 
 
-I'm building this portfolio to track my progress and share what I learn across different areas of cybersecurity. Everything here is self-driven and updated as I grow.
+| Project                 | Description                                                                                 | Tools used                 |
+| ----------------------- | ------------------------------------------------------------------------------------------- | -------------------------- |
+| Threat analysis Reports | real world phishing and malware analysis using isolated sandboxing and MITRE ATT&CK mapping | Cuckoo sandbox, VirusTotal |
 
----
-
-## Areas of Interest
-
-- AI/ML security
-- Threat Analysis
-- Cloud security
+more projects coming soon as I continue to develop my skills
 
 ---
 
-## Repository Structure
+## CURRENTLY Learning 
 
-```
-/
-├── 
-├── 
-├── 
-└── 
-```
+AI Security: 
+- AI fundamentals - AI/ML security threats 
 
----
+Pre-security 
+- intro to cyber security 
+- network fundamentals 
+- how the web works 
+- computer fundamentals 
 
-## Projects
+## Tryhackme progress
 
-> Coming soon — this section will be updated as I complete projects.
-
----
-## TryHackMe
-
-
-Actively working through rooms and learning paths on TryHackMe. View my full profile here.
-Completed Rooms
-
-I'll be updating this as I work through more rooms.
+[TryHackMe | joby877](https://tryhackme.com/p/joby877)
 
 ---
-
-## Certifications & Learning
-
-> Coming soon — courses, certs, and platforms I'm working through.
-
----
-
-## Tools & Platforms
-
-Platforms and tools I'm learning with:
-
-- [TryHackMe](https://tryhackme.com)
-- [Hack The Box](https://hackthebox.com)
-- [PortSwigger Web Security Academy](https://portswigger.net/web-security)
-
----
-
-*This portfolio is a work in progress — updated regularly as I learn.*
+This repository is a living document - updated regularly as I complete projects, certifications and research.

@@ -172,7 +172,7 @@ The URL received via phishing message was confirmed malicious across all tools u
 
 ## References
 
-- Any.run: https://any.run
+- cuckoo sandbox: https://sandbox.pikker.ee
 - VirusTotal: https://virustotal.com
 - MITRE ATT&CK: https://attack.mitre.org
 - NCSC Phishing Reporting: https://www.ncsc.gov.uk
