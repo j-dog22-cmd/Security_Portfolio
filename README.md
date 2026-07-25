@@ -30,12 +30,6 @@ more projects coming soon as I continue to develop my skills
 AI Security: 
 - AI fundamentals - AI/ML security threats 
 
-Pre-security 
-- intro to cyber security 
-- network fundamentals 
-- how the web works 
-- computer fundamentals 
-
 ## Tryhackme progress
 
 [TryHackMe | joby877](https://tryhackme.com/p/joby877)
