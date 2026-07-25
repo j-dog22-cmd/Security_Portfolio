@@ -2,7 +2,7 @@
 
 > Cyber security student | aspiring security professional | always learning 
 
-I'm second year BSc (Hons) Cyber Security and Digital Forensics student at the university of the West of England, with strong foundations in offensive and defensive security. I have a growing focus on AI security and threat analysis, and I actively build skills outside of university through independent research and hands-on lab work 
+I'm final year BSc (Hons) Cyber Security and Digital Forensics student at the university of the West of England, with strong foundations in offensive and defensive security. I have a growing focus on AI security and threat analysis, and I actively build skills outside of university through independent research and hands-on lab work 
 
 ---
 ## what I'm working on
