@@ -155,7 +155,7 @@ Flagged by **21/21 AV engines** on VirusTotal — all classify as phishing or ma
 
 ## Conclusion
 
-The URL received via phishing message was confirmed malicious across all tools used in this analysis. Any.run sandbox scored it 9.7/10 and identified active memory manipulation and process injection behaviour — unusual for a purely credential-harvesting phishing page, suggesting the site may attempt to execute code in the browser. All 21 VirusTotal AV engines flagged it as a phishing or malicious site. The domain `dpdlocakqf[.]cyou` is clearly designed to impersonate DPD UK and should be treated as a high-confidence threat.
+The URL received via phishing message was confirmed malicious across all tools used in this analysis. Cuckoo sandbox scored it 9.7/10 and identified active memory manipulation and process injection behaviour — unusual for a purely credential-harvesting phishing page, suggesting the site may attempt to execute code in the browser. All 21 VirusTotal AV engines flagged it as a phishing or malicious site. The domain `dpdlocakqf[.]cyou` is clearly designed to impersonate DPD UK and should be treated as a high-confidence threat.
 
 ---
 
