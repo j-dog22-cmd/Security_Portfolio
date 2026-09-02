@@ -5,8 +5,6 @@ Severity: High··
 Type: SMS··
 Status: Complete
 
----
-
 ## Executive Summary
 
 A phishing message impersonating DPD UK directed the recipient to a malicious URL. Sandbox analysis revealed active memory manipulation and process injection behaviour — unusual for a typical credential-harvesting phishing page — and the URL was flagged as malicious or phishing by all 21 AV engines checked on VirusTotal. **Verdict: high-confidence malicious. Do not visit.**
