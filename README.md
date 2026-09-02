@@ -7,7 +7,7 @@ I'm a third-year BSc (Hons) Cyber Security and Digital Forensics student at the 
 - 🎓 CompTIA Security+ (2026)
 - 🔍 Currently focused on: threat analysis, malware analysis, AI/LLM security
 - 📚 Actively learning: AI/ML security fundamentals, reverse engineering
-- 💬 Writing awareness content on LinkedIn — [connect with me](#)
+- 💬 Writing awareness content on LinkedIn — [connect with me](www.linkedin.com/in/joby-barnaby-969973280)
 
 ---
 
