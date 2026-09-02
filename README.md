@@ -25,7 +25,7 @@ I'm a third-year BSc (Hons) Cyber Security and Digital Forensics student at the 
 | Project | Description | Tools Used | Link |
 |---|---|---|---|
 | **Threat Analysis Reports** | Real-world phishing and malware analysis using isolated sandboxing and MITRE ATT&CK mapping | Cuckoo Sandbox, VirusTotal, MITRE ATT&CK | [View](./threat-analysis) |
-| **Suspicious Message Reporter** | A simple web form built for friends and family to report suspicious scam/phishing emails they receive, helping create a safer environment for non-technical users | EmailJS, GitHub Pages | [View](./suspicious-message-reporter) |
+
 
 *More projects coming soon as I continue to develop my skills.*
 
