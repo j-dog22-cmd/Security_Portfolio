@@ -1,9 +1,10 @@
 # Threat Analysis Report — DPD Phishing
-Author: Joby Barnaby··
-Date: 12/05/2026··
-Severity: High··
-Type: SMS··
-Status: Complete
+
+**Author:** Joby Barnaby
+**Date:** 12/05/2026
+**Severity:** High
+**Type:** SMS
+**Status:** Complete
 
 ---
 
