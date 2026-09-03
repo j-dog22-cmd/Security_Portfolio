@@ -4,10 +4,10 @@
 
 I'm a third-year BSc (Hons) Cyber Security and Digital Forensics student at the University of the West of England, with strong foundations in offensive and defensive security. I have a growing focus on **AI security** and **threat/malware analysis**, and I actively build skills outside of university through independent research and hands-on lab work.
 
-- 🎓 CompTIA Security+ (2026)
-- 🔍 Currently focused on: threat analysis, malware analysis, AI/LLM security
-- 📚 Actively learning: AI/ML security fundamentals, reverse engineering
-- 💬 Writing awareness content on LinkedIn — [connect with me](www.linkedin.com/in/joby-barnaby-969973280)
+- CompTIA Security+ (2026)
+- Currently focused on: threat analysis, malware analysis, AI/LLM security
+- Actively learning: AI/ML security fundamentals, reverse engineering
+- Writing awareness content on LinkedIn — [connect with me](www.linkedin.com/in/joby-barnaby-969973280)
 
 ---
 
@@ -54,7 +54,7 @@ I'm a third-year BSc (Hons) Cyber Security and Digital Forensics student at the 
 
 ## Certifications
 
-- CompTIA Security+ ✅
+- CompTIA Security+ 
 
 ---
 
